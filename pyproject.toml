@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "psychopy-neuroplaypro-neurolab"
+version = "0.0.1"
+description = "NeuroPlayPro EEG plugin for PsychoPy Builder"
+authors = [{ name = "NeuroLab", email = "you@example.com" }]
+dependencies = ["psychopy"]
+requires-python = ">=3.7"
+
+[project.entry-points."psychopy.plugins"]
+neuroplaypro = "psychopy_neuroplaypro.plugin:NeuroPlayPlugin"
+
+[tool.setuptools]
+packages = ["psychopy_neuroplaypro"]

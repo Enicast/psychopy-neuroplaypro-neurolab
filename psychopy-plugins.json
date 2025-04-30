@@ -1,0 +1,10 @@
+{
+    "psychopy-neuroplay": {
+      "name": "NeuroPlay EEG Recorder",
+      "description": "Plugin for controlling NeuroPlay EEG recordings.",
+      "entryPoint": "psychopy_neuroplay",
+      "icon": "psychopy_neuroplay/resources/icon.png",
+      "enabled": true
+    }
+  }
+  
