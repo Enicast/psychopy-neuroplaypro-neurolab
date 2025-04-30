@@ -3,7 +3,7 @@ import os
 
 class NeuroPlayComponent(BaseComponent):
     categories = ['EEG']
-    iconFile = os.path.join(os.path.dirname(__file__), 'resources', 'icon.png')
+    iconFile = os.path.join(os.path.dirname(__file__), '..', 'resources', 'icon.png')
     
     def __init__(self, exp, parentName, name='neuroplay',
                  saveFolder='data', filePrefix='recording', autoTimestamp=True,
