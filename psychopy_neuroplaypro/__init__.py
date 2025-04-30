@@ -1,2 +1,1 @@
-# пустой или просто:
-from .component import NeuroPlayComponent
+# Инициализация пакета — можно оставить пустым
