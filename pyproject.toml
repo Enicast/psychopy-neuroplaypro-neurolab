@@ -4,14 +4,17 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "psychopy-neuroplaypro-neurolab"
-version = "0.0.4"
-description = "NeuroPlay EEG recording plugin for PsychoPy Builder"
-authors = [{name = "Enicast", email = "enicaster@gmail.com"}]
+version = "0.0.5"
+description = "Plugin for integrating NeuroPlayPro EEG recording in PsychoPy Builder."
+authors = [
+    {name = "Enicast", email = "enicaster@gmail.com"}
+]
 dependencies = ["psychopy"]
 requires-python = ">=3.8"
+readme = "README.md"
 
 [project.entry-points."psychopy.plugins"]
-neuroplay = "psychopy_neuroplaypro.plugin:NeuroPlayPlugin"
+neuroplay = "psychopy_neuroplaypro_neurolab.plugin:NeuroPlayPlugin"
 
 [tool.setuptools]
-packages = ["psychopy_neuroplaypro"]
+packages = ["psychopy_neuroplaypro_neurolab"]
