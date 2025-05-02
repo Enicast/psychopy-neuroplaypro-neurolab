@@ -11,16 +11,16 @@ class NeuroPlayComponent(BaseComponent):
         super().__init__(exp, parentName, name=name,
                          startType=startType, startVal=startVal,
                          stopType=stopType, stopVal=stopVal)
-        self.type = 'NeuroPlay'
+        self.type = 'neuroplay'
         self.url = "http://127.0.0.1:2336"
         self.order += ['saveFolder', 'filePrefix', 'autoTimestamp']
-        self.params['saveFolder'] = {'val': saveFolder, 'valType': 'code', 'updates': 'constant', 'hint': 'Folder to save EEG data'}
-        self.params['filePrefix'] = {'val': filePrefix, 'valType': 'code', 'updates': 'constant', 'hint': 'Filename prefix'}
-        self.params['autoTimestamp'] = {'val': autoTimestamp, 'valType': 'bool', 'updates': 'constant', 'hint': 'Append timestamp to filename'}
+        self.params['saveFolder'] = {'val': saveFolder, 'valType': 'code', 'updates': 'constant'}
+        self.params['filePrefix'] = {'val': filePrefix, 'valType': 'code', 'updates': 'constant'}
+        self.params['autoTimestamp'] = {'val': autoTimestamp, 'valType': 'bool', 'updates': 'constant'}
 
     def writeRoutineStartCode(self, buff):
         buff.writeIndentedLines(f"""
-# Start NeuroPlay recording
+# NeuroPlay START recording
 import requests, os, datetime
 save_folder = {self.params['saveFolder']['val']}
 file_prefix = {self.params['filePrefix']['val']}
@@ -34,20 +34,16 @@ full_path = os.path.join(save_folder, filename)
 
 try:
     os.makedirs(save_folder, exist_ok=True)
-    response = requests.post('{self.url}', json={{"command": "startRecord", "path": full_path}})
-    if not response.ok:
-        print(f"[NeuroPlay] Failed to start: {{response.text}}")
+    requests.post('{self.url}', json={{"command": "startRecord", "path": full_path}})
 except Exception as e:
     print(f"[NeuroPlay] Exception: {{e}}")
 """)
 
     def writeRoutineEndCode(self, buff):
         buff.writeIndentedLines(f"""
-# Stop NeuroPlay recording
+# NeuroPlay STOP recording
 try:
-    response = requests.post('{self.url}', json={{"command": "stopRecord"}})
-    if not response.ok:
-        print(f"[NeuroPlay] Failed to stop: {{response.text}}")
+    requests.post('{self.url}', json={{"command": "stopRecord"}})
 except Exception as e:
     print(f"[NeuroPlay] Exception: {{e}}")
 """)
