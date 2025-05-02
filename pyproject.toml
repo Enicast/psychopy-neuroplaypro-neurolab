@@ -17,7 +17,7 @@ readme = "README.md"
 neuroplay = "psychopy_neuroplaypro_neurolab.plugin:NeuroPlayPlugin"
 
 [project.entry-points."psychopy.experiment.components"]
-neuroplay = "psychopy_neuroplaypro_neurolab.components.neuroplay:NeuroPlayComponent"
+neuroplay = "psychopy_neuroplaypro_neurolab.components.neuroplay.neuroplay:NeuroPlayComponent"
 
 [tool.setuptools]
 packages = ["psychopy_neuroplaypro_neurolab"]
