@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "psychopy-neuroplaypro-neurolab"
-version = "0.0.6"
+version = "0.0.7"
 description = "Plugin for integrating NeuroPlayPro EEG recording in PsychoPy Builder."
 authors = [
     {name = "Enicast", email = "enicaster@gmail.com"}
